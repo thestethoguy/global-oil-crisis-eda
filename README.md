@@ -6,6 +6,58 @@
 ## 📋 Project Overview
 This project involves a comprehensive Exploratory Data Analysis (EDA) and predictive modeling pipeline to assess the macroeconomic shockwaves caused by the 2026 geopolitical conflict and the subsequent closure of the Strait of Hormuz. The analysis investigates the vulnerability of global supply chains and the resulting domestic inflation risks.
 
+## 🏗️ Data Science Pipeline Architecture
+
+```mermaid
+flowchart TD
+    %% Custom Styling
+    classDef dataset fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000
+    classDef processing fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#000
+    classDef modeling fill:#f3e5f5,stroke:#4a148c,stroke-width:2px,color:#000
+    classDef insight fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px,color:#000
+
+    %% Pipeline Nodes
+    subgraph Data [1. Data Ingestion]
+        A[(crude_oil_daily.csv)]:::dataset
+        B[(country_impact.csv)]:::dataset
+        C[(petrol_prices_comparison.csv)]:::dataset
+    end
+
+    subgraph Preprocessing [2. Preprocessing & Engineering]
+        D[Handle Missing Values]:::processing
+        E[DateTime Parsing]:::processing
+        F[Relational Merging 'JOIN']:::processing
+    end
+
+    subgraph Analysis [3. Exploratory Data Analysis]
+        G{Time-Series Volatility}:::processing
+        H{Bivariate Scatter Mapping}:::processing
+    end
+
+    subgraph ML [4. Predictive Modeling]
+        I((Linear Regression)):::modeling
+        J((Logistic Regression)):::modeling
+        K[Predict: GDP Impact %]:::modeling
+        L[Classify: Risk Tiers]:::modeling
+    end
+
+    subgraph Output [5. Executive Deliverables]
+        M[Jupyter Notebook]:::insight
+        N[Exported PDF / HTML]:::insight
+        O(((Final Business Insights))):::insight
+    end
+
+    %% Routing
+    A & B & C --> D
+    D --> E --> F
+    F --> G & H
+    G & H --> I & J
+    I --> K
+    J --> L
+    K & L --> M & N --> O
+
+
+
 ## 🛠️ Tech Stack & Methodologies
 * **Language:** Python 3
 * **Libraries:** Pandas, NumPy, Matplotlib, Seaborn, Scikit-Learn
