@@ -8,6 +8,9 @@ This project involves a comprehensive Exploratory Data Analysis (EDA) and predic
 
 ## 🏗️ Data Science Pipeline Architecture
 
+
+    
+
 ```mermaid
 flowchart TD
     %% Custom Styling
@@ -55,6 +58,9 @@ flowchart TD
     I --> K
     J --> L
     K & L --> M & N --> O
+```
+
+
 
 
 
